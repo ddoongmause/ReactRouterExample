@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+#React Router 예제(v3)
+https://velopert.com/2937
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Apache, Nginx 등의 웹 서버에서 각 페이지마다 다른 디렉토리 및 파일을 제공하는 것과 달리, react-router는 어떤 경로로 들어오던 똑같은 html파일과 자바스크립트 파일을 제공
 
-## Available Scripts
+### CLI
+1. yarn add create-react-app
+2. create-react-app react-router-tutorial
+3. yarn add prop-types 
+   
+서버 올리기
+4. yarn add express
+5. yarn build
+6. node server
 
-In the project directory, you can run:
 
-### `yarn start`
+### src/index.js
+- Router: 라우터의 속성을 정의하고 내부에서 라우트 설정
+- Route: 설정한 경로에서 어떤 컴포넌트를 렌더링 할 지 정하는 컴포넌트, Route 컴포넌트의 자식에 또 다른 Route 컴포넌트를 넣으면 해당 자식 컴포넌트는 부모 라우트의 서브 라우트가 됨
+- IndexRoute: Route에서 서브Route가 주어지지 않았을 때, 즉 특정 Route의 /경로로 들어왔을 때, 이 Route에서 지정한 컴포넌트를 보여줌
+- browserHistory: HTML5dml History API를 사용하여 브라우저의 URL 변화를 주시하고, 조작함
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### src/components/Header.js
+- 설정 될라우트 경로는 to 값을 통해 설정
+- Cannot read property 'object' of undefined 나올거임(CLI 3번을 입력하고, router: PropTypes.object로 변경)
+- :id(params.id}를 통해 /post/10 이면 10을 가져옴
